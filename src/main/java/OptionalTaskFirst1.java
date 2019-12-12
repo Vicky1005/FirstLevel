@@ -1,7 +1,9 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class OptionalTaskFirst1 {
     public static void main(String[] args) {
+        // 1.     Найти самое короткое и самое длинное число. Вывести найденные числа и их длину.
         System.out.println("Enter integer numbers");
         Scanner scan = new Scanner(System.in);
         int[] numbers = new int[3];
@@ -9,9 +11,8 @@ public class OptionalTaskFirst1 {
             numbers[i] = scan.nextInt();
         }
 
-        // 1.     Найти самое короткое и самое длинное число. Вывести найденные числа и их длину.
         int count = 0;
-        int temporary = 0;
+        int temporary;
         int[] numbersLenght = new int[numbers.length];
         for (int i = 0; i < numbersLenght.length; i++) {
             temporary = numbers[i];
@@ -30,9 +31,7 @@ public class OptionalTaskFirst1 {
                 maxLenght = numbersLenght[i];
                 maxNumber = numbers[i];
             }
-
         }
-
         int minLenght = (int) Double.POSITIVE_INFINITY;
         int minNumber = numbers[0];
         for (int i = 0; i < numbersLenght.length; i++) {
@@ -40,34 +39,12 @@ public class OptionalTaskFirst1 {
                 minLenght = numbersLenght[i];
                 minNumber = numbers[i];
             }
-
         }
         System.out.println("The longest number is " + maxNumber + " - contains " + maxLenght + " chars");
         System.out.println("The shortest number is " + minNumber + " - contains " + minLenght + " chars");
-
-
-        //3.     Вывести на консоль те числа, длина которых меньше (больше) средней длины по всем числам, а также длину.
-
-        int sum = 0;
-        for (int i = 0; i < numbersLenght.length; i++) {
-            sum += numbersLenght[i];
-        }
-
-        int averageLenght = sum / numbersLenght.length;
-
-        for (int i = 0; i < numbersLenght.length; i++) {
-            if (numbersLenght[i] < averageLenght) {
-                System.out.println("The lenght of number " + numbers[i] + " is less then average. It's equal to " + numbersLenght[i]);
-            }
-        }
-
-        for (int i = 0; i < numbersLenght.length; i++) {
-            if (numbersLenght[i] > averageLenght) {
-                System.out.println("The lenght of number " + numbers[i] + " is more then average. It's equal to " + numbersLenght[i]);
-            }
-        }
-
     }
-
 }
+
+
+
 
