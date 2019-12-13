@@ -26,6 +26,9 @@ public class OptionalTaskFirst2 {
             }
         }
         System.out.println(Arrays.toString(numbers));
+
+
+        isSorted = false;
         while (!isSorted) {
             isSorted = true;
             for (int i = 0; i < numbers.length - 1; i++) {
