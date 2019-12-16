@@ -12,33 +12,40 @@ public class OptionalTaskFirst4 {
 
         int minNumber = numbers[0];
         for (int i = 1; i < numbers.length; i++) {
-            if (minNumber > numbers[i]) {
+            if (getCount(minNumber) > getCount(numbers[i])) {
                 minNumber = numbers[i];
             }
         }
-        System.out.println();
+        System.out.println(minNumber);
 
     }
 
-    public int getCount(int a) {
+    public static int getCount(int a) {
+        int tempA = a;
         int count = 0;
-        while (a != 0) {
-            a %= 10;
-            a /= 10;
+        while (tempA != 0) {
+            tempA /= 10;
             count++;
         }
-        int[] array = new int[count];
-        int temp;
-        for (int i = 0; i < array.length; i++) {
-            temp = a % 10;
-            array[i] = temp;
+        int[] digits = new int[count];
+        int tempNumber;
+        for (int i = 0; i < digits.length; i++) {
+            tempNumber = a % 10;
+            digits[i] = tempNumber;
             a /= 10;
         }
         int countDigits = 0;
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < i; j++) {
-
+        for (int i = 0; i < digits.length; i++) {
+            boolean equal = false;
+            for (int j = i + 1; j < digits.length; j++) {
+                if (digits[i] == digits[j]) {
+                    equal = true;
+                }
+            }
+            if (!equal) {
+                countDigits++;
             }
         }
+        return countDigits;
     }
 }
